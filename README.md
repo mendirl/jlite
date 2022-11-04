@@ -42,5 +42,6 @@ docker compose -f src/main/docker/postgresql.yml up -d
 - [CORS configuration](documentation/cors-configuration.md)
 - [Hexagonal architecture](documentation/hexagonal-architecture.md)
 - [Postgresql](documentation/postgresql.md)
+- [Dev tools](documentation/dev-tools.md)
 
 <!-- jhipster-needle-documentation -->
