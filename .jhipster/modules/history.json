@@ -43,5 +43,16 @@
       "endOfLine" : "lf",
       "indentSize" : 2
     }
+  }, {
+    "module" : "spring-boot-tomcat",
+    "date" : "2022-11-04T07:56:25.899956273Z",
+    "properties" : {
+      "packageName" : "io.mendirl.jlite",
+      "projectName" : "JLite Sample Application",
+      "baseName" : "jliteApplication",
+      "serverPort" : 8989,
+      "endOfLine" : "lf",
+      "indentSize" : 2
+    }
   } ]
 }
