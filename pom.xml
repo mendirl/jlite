@@ -28,6 +28,7 @@
     <reflections.version>0.10.2</reflections.version>
     <springdoc-openapi.version>1.6.12</springdoc-openapi.version>
     <testcontainers.version>1.17.3</testcontainers.version>
+    <archunit-junit5.version>1.0.0</archunit-junit5.version>
   </properties>
 
   <dependencyManagement>
@@ -136,6 +137,13 @@
       <groupId>org.testcontainers</groupId>
       <artifactId>postgresql</artifactId>
       <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.tngtech.archunit</groupId>
+      <artifactId>archunit-junit5-api</artifactId>
+      <version>${archunit-junit5.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
