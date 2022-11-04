@@ -164,5 +164,16 @@
       "endOfLine" : "lf",
       "indentSize" : 2
     }
+  }, {
+    "module" : "zalando-problems",
+    "date" : "2022-11-04T07:57:24.936240666Z",
+    "properties" : {
+      "packageName" : "io.mendirl.jlite",
+      "projectName" : "JLite Sample Application",
+      "baseName" : "jliteApplication",
+      "serverPort" : 8989,
+      "endOfLine" : "lf",
+      "indentSize" : 2
+    }
   } ]
 }
