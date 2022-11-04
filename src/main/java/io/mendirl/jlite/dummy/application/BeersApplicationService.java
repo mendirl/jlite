@@ -9,6 +9,7 @@ import io.mendirl.jlite.dummy.domain.beer.BeersRemover;
 import io.mendirl.jlite.dummy.domain.beer.BeersRepository;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,16 +26,19 @@ public class BeersApplicationService {
     remover = new BeersRemover(beers);
   }
 
+  @Transactional
   @PreAuthorize("hasRole('ADMIN')")
   public Beer create(BeerToCreate beerToCreate) {
     return creator.create(beerToCreate);
   }
   
+  @Transactional
   @PreAuthorize("hasRole('ADMIN')")
   public void remove(BeerId beer) {
     remover.remove(beer);
   }
 
+  @Transactional(readOnly = true)
   public Beers catalog() {
     return beers.catalog();
   }
