@@ -208,5 +208,16 @@
       "endOfLine" : "lf",
       "indentSize" : 2
     }
+  }, {
+    "module" : "dummy-feature",
+    "date" : "2022-11-04T07:57:39.252685987Z",
+    "properties" : {
+      "packageName" : "io.mendirl.jlite",
+      "projectName" : "JLite Sample Application",
+      "baseName" : "jliteApplication",
+      "serverPort" : 8989,
+      "endOfLine" : "lf",
+      "indentSize" : 2
+    }
   } ]
 }
