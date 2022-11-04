@@ -197,5 +197,16 @@
       "endOfLine" : "lf",
       "indentSize" : 2
     }
+  }, {
+    "module" : "spring-boot-cucumber-oauth2-authentication",
+    "date" : "2022-11-04T07:57:35.309113614Z",
+    "properties" : {
+      "packageName" : "io.mendirl.jlite",
+      "projectName" : "JLite Sample Application",
+      "baseName" : "jliteApplication",
+      "serverPort" : 8989,
+      "endOfLine" : "lf",
+      "indentSize" : 2
+    }
   } ]
 }
