@@ -26,6 +26,7 @@
     <failsafe-plugin.version>3.0.0-M5</failsafe-plugin.version>
     <spring-boot.version>2.7.5</spring-boot.version>
     <reflections.version>0.10.2</reflections.version>
+    <springdoc-openapi.version>1.6.12</springdoc-openapi.version>
   </properties>
 
   <dependencyManagement>
@@ -66,6 +67,12 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-ui</artifactId>
+      <version>${springdoc-openapi.version}</version>
     </dependency>
 
     <dependency>

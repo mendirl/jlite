@@ -17,6 +17,7 @@ npm install
 ## Local environment
 
 - [Local server](http://localhost:8989)
+- [Local API doc](http://localhost:8989/swagger-ui/index.html)
 
 <!-- jhipster-needle-localEnvironment -->
 
