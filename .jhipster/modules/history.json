@@ -87,5 +87,16 @@
       "endOfLine" : "lf",
       "indentSize" : 2
     }
+  }, {
+    "module" : "java-base",
+    "date" : "2023-01-12T11:26:05.349844227Z",
+    "properties" : {
+      "packageName" : "io.mendirl.jhlite",
+      "projectName" : "JHipster Lite Application",
+      "baseName" : "jhLiteApplication",
+      "serverPort" : 8080,
+      "endOfLine" : "lf",
+      "indentSize" : 2
+    }
   } ]
 }
