@@ -34,6 +34,7 @@
     <checksum-maven-plugin.version>1.11</checksum-maven-plugin.version>
     <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
     <frontend-maven-plugin.version>1.12.1</frontend-maven-plugin.version>
+    <archunit-junit5.version>1.0.1</archunit-junit5.version>
   </properties>
 
   <dependencyManagement>
@@ -168,6 +169,13 @@
       <groupId>org.testcontainers</groupId>
       <artifactId>postgresql</artifactId>
       <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.tngtech.archunit</groupId>
+      <artifactId>archunit-junit5-api</artifactId>
+      <version>${archunit-junit5.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
