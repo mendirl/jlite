@@ -30,6 +30,7 @@
     "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml,html,js,ts,tsx,css,scss,vue,java,xml}\""
   },
   "devDependencies": {
+    "@pinia/testing": "0.0.14",
     "@rushstack/eslint-patch": "1.2.0",
     "@typescript-eslint/parser": "5.48.1",
     "@vitejs/plugin-vue": "4.0.0",
@@ -62,6 +63,8 @@
     "prettier-plugin-packagejson": "2.3.0"
   },
   "dependencies": {
+    "pinia": "2.0.28",
+    "pinia-plugin-persist": "1.0.0",
     "vue": "3.2.45",
     "axios": "1.2.2",
     "vue-router": "4.1.6"
