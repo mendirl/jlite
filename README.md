@@ -35,5 +35,7 @@ npm install
 - [Assertions](documentation/assertions.md)
 - [Vue](documentation/vue.md)
 - [Logs spy](documentation/logs-spy.md)
+- [Module creation](documentation/module-creation.md)
+- [Cucumber](documentation/cucumber.md)
 
 <!-- jhipster-needle-documentation -->
