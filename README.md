@@ -54,5 +54,6 @@ docker compose -f src/main/docker/keycloak.yml up -d
 - [CORS configuration](documentation/cors-configuration.md)
 - [Cucumber authentication](documentation/cucumber-authentication.md)
 - [Dummy](documentation/dummy.md)
+- [Rest pagination](documentation/rest-pagination.md)
 
 <!-- jhipster-needle-documentation -->
