@@ -1,0 +1,156 @@
+package io.mendirl.jhlite.authentication.infrastructure.primary;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
+import org.springframework.security.oauth2.core.OAuth2TokenValidator;
+import org.springframework.security.oauth2.core.oidc.user.OidcUserAuthority;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtDecoders;
+import org.springframework.security.oauth2.jwt.JwtValidators;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
+import org.springframework.web.filter.CorsFilter;
+
+import io.mendirl.jhlite.authentication.domain.Role;
+import io.mendirl.jhlite.common.domain.Generated;
+
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity(prePostEnabled = true, securedEnabled = true)
+public class SecurityConfiguration {
+
+  private final ApplicationSecurityProperties applicationSecurityProperties;
+  private final CorsFilter corsFilter;
+
+  @Value("${spring.security.oauth2.client.provider.oidc.issuer-uri}")
+  private String issuerUri;
+
+  public SecurityConfiguration(
+    CorsFilter corsFilter,
+    ApplicationSecurityProperties applicationSecurityProperties
+  ) {
+    this.corsFilter = corsFilter;
+    this.applicationSecurityProperties = applicationSecurityProperties;
+  }
+
+  @Bean
+  public WebSecurityCustomizer webSecurityCustomizer() {
+    return web ->
+      web
+        .ignoring()
+        .requestMatchers(HttpMethod.OPTIONS, "/**")
+        .requestMatchers("/app/**")
+        .requestMatchers("/i18n/**")
+        .requestMatchers("/content/**")
+        .requestMatchers("/swagger-ui/**")
+        .requestMatchers("/swagger-ui.html")
+        .requestMatchers("/v3/api-docs/**")
+        .requestMatchers("/test/**");
+  }
+
+  @Bean
+  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    // @formatter:off
+    return http
+      .csrf()
+      .disable()
+      .addFilterBefore(corsFilter, CsrfFilter.class)
+      .headers()
+      .contentSecurityPolicy(applicationSecurityProperties.getContentSecurityPolicy())
+    .and()
+      .referrerPolicy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN)
+    .and()
+      .permissionsPolicy().policy("camera=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), sync-xhr=()")
+    .and()
+      .frameOptions()
+      .sameOrigin()
+    .and()
+      .authorizeHttpRequests()
+      .requestMatchers("/api/authenticate").permitAll()
+      .requestMatchers("/api/auth-info").permitAll()
+      .requestMatchers("/api/admin/**").hasAuthority(Role.ADMIN.key())
+      .requestMatchers("/api/**").authenticated()
+      .requestMatchers("/management/health").permitAll()
+      .requestMatchers("/management/health/**").permitAll()
+      .requestMatchers("/management/info").permitAll()
+      .requestMatchers("/management/prometheus").permitAll()
+      .requestMatchers("/management/**").hasAuthority(Role.ADMIN.key())
+      .anyRequest().authenticated()
+    .and()
+      .oauth2Login()
+    .and()
+      .oauth2ResourceServer()
+        .jwt()
+        .jwtAuthenticationConverter(authenticationConverter())
+        .and()
+      .and()
+        .oauth2Client()
+      .and().build();
+    // @formatter:on
+  }
+
+  private Converter<Jwt, AbstractAuthenticationToken> authenticationConverter() {
+    JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
+    jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new JwtGrantedAuthorityConverter());
+
+    return jwtAuthenticationConverter;
+  }
+
+  /**
+   * Map authorities from "groups" or "roles" claim in ID Token.
+   *
+   * @return a {@link GrantedAuthoritiesMapper} that maps groups from the IdP to Spring Security Authorities.
+   */
+  @Bean
+  public GrantedAuthoritiesMapper userAuthoritiesMapper() {
+    return authorities -> {
+      Set<GrantedAuthority> mappedAuthorities = new HashSet<>();
+
+      authorities.forEach(authority -> {
+        // Check for OidcUserAuthority because Spring Security 5.2 returns
+        // each scope as a GrantedAuthority, which we don't care about.
+        if (authority instanceof OidcUserAuthority oidcUserAuthority) {
+          mappedAuthorities.addAll(Claims.extractAuthorityFromClaims(oidcUserAuthority.getUserInfo().getClaims()));
+        }
+      });
+      return mappedAuthorities;
+    };
+  }
+
+  @Bean
+  @Generated(reason = "Only called with a valid client registration repository")
+  public JwtDecoder jwtDecoder(ClientRegistrationRepository clientRegistrationRepository, RestTemplateBuilder restTemplateBuilder) {
+    NimbusJwtDecoder jwtDecoder = JwtDecoders.fromOidcIssuerLocation(issuerUri);
+
+    OAuth2TokenValidator<Jwt> audienceValidator = new AudienceValidator(applicationSecurityProperties.getOauth2().getAudience());
+    OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuerUri);
+    OAuth2TokenValidator<Jwt> withAudience = new DelegatingOAuth2TokenValidator<>(withIssuer, audienceValidator);
+
+    jwtDecoder.setJwtValidator(withAudience);
+    jwtDecoder.setClaimSetConverter(
+      new CustomClaimConverter(clientRegistrationRepository.findByRegistrationId("oidc"), restTemplateBuilder.build())
+    );
+
+    return jwtDecoder;
+  }
+}
