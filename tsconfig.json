@@ -1,17 +1,27 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "outFile": "dist/main.js",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
     "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client", "vitest/globals"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/main/webapp/app/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": [
+    "src/main/webapp/**/*.ts",
+    "src/main/webapp/**/*.d.ts",
+    "src/main/webapp/**/*.tsx",
+    "src/main/webapp/**/*.vue",
+    "src/test/javascript/spec/**/*.ts"
+  ],
+  "exclude": ["./node_modules"]
 }
