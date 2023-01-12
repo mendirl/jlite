@@ -37,6 +37,7 @@
     <archunit-junit5.version>1.0.1</archunit-junit5.version>
     <reflections.version>0.10.2</reflections.version>
     <git-commit-id-plugin.version>5.0.0</git-commit-id-plugin.version>
+    <json-web-token.version>0.11.5</json-web-token.version>
   </properties>
 
   <dependencyManagement>
@@ -227,6 +228,27 @@
       <groupId>org.reflections</groupId>
       <artifactId>reflections</artifactId>
       <version>${reflections.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-api</artifactId>
+      <version>${json-web-token.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-impl</artifactId>
+      <version>${json-web-token.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-jackson</artifactId>
+      <version>${json-web-token.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

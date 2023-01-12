@@ -51,5 +51,6 @@ docker compose -f src/main/docker/keycloak.yml up -d
 - [Caffeine](documentation/caffeine.md)
 - [Jpa pages](documentation/jpa-pages.md)
 - [CORS configuration](documentation/cors-configuration.md)
+- [Cucumber authentication](documentation/cucumber-authentication.md)
 
 <!-- jhipster-needle-documentation -->
