@@ -17,9 +17,6 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-
-import tech.jhipster.lite.cucumber.CucumberTestContext;
-
 import io.mendirl.jhlite.JhLiteApplicationApp;
 import io.mendirl.jhlite.cucumber.CucumberConfiguration.CucumberRestTemplateConfiguration;
 
