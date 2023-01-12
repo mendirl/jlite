@@ -1,0 +1,14 @@
+{
+  "actions" : [ {
+    "module" : "init",
+    "date" : "2023-01-12T11:26:04.938586980Z",
+    "properties" : {
+      "packageName" : "io.mendirl.jhlite",
+      "projectName" : "JHipster Lite Application",
+      "baseName" : "jhLiteApplication",
+      "serverPort" : 8080,
+      "endOfLine" : "lf",
+      "indentSize" : 2
+    }
+  } ]
+}
