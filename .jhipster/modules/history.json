@@ -175,5 +175,17 @@
       "serverPort" : 8080,
       "springConfigurationFormat" : "yaml"
     }
+  }, {
+    "module" : "maven-wrapper",
+    "date" : "2025-01-17T18:59:25.002691900Z",
+    "properties" : {
+      "packageName" : "com.mycompany.myapp",
+      "projectName" : "JHipster Sample Application",
+      "baseName" : "jhipsterSampleApplication",
+      "endOfLine" : "lf",
+      "indentSize" : 2,
+      "serverPort" : 8080,
+      "springConfigurationFormat" : "yaml"
+    }
   } ]
 }
