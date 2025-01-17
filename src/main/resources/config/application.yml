@@ -55,3 +55,21 @@ springdoc:
     operationsSorter: alpha
     tagsSorter: alpha
     tryItOutEnabled: true
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include:
+        - configprops
+        - env
+        - health
+        - info
+        - logfile
+        - loggers
+        - threaddump
