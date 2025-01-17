@@ -271,5 +271,17 @@
       "serverPort" : 8080,
       "springConfigurationFormat" : "yaml"
     }
+  }, {
+    "module" : "application-service-hexagonal-architecture-documentation",
+    "date" : "2025-01-17T19:00:01.995238314Z",
+    "properties" : {
+      "packageName" : "com.mycompany.myapp",
+      "projectName" : "JHipster Sample Application",
+      "baseName" : "jhipsterSampleApplication",
+      "endOfLine" : "lf",
+      "indentSize" : 2,
+      "serverPort" : 8080,
+      "springConfigurationFormat" : "yaml"
+    }
   } ]
 }
