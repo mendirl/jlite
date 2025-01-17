@@ -41,5 +41,8 @@ spring:
         query:
           fail_on_pagination_over_collection_fetch: true
           in_clause_parameter_padding: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 server:
   port: 8080
