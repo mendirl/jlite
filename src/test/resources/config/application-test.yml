@@ -7,5 +7,12 @@ logging:
 spring:
   main:
     banner-mode: 'off'
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    hikari:
+      maximum-pool-size: 2
+    password: ''
+    url: jdbc:tc:postgresql:17.2:///jhipsterSampleApplication?TC_TMPFS=/testtmpfs:rw
+    username: jhipsterSampleApplication
 server:
   port: 0
