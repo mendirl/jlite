@@ -56,5 +56,6 @@ docker compose -f src/main/docker/postgresql.yml up -d
 - [Kipe expression](documentation/kipe-expression.md)
 - [Cucumber authentication](documentation/cucumber-authentication.md)
 - [Sample](documentation/sample.md)
+- [Front hexagonal architecture](documentation/front-hexagonal-architecture.md)
 
 <!-- jhipster-needle-documentation -->
