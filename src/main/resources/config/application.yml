@@ -46,3 +46,6 @@ spring:
     locations: classpath:db/migration
 server:
   port: 8080
+application:
+  security:
+    jwt-base64-secret: MzEyMmUyOTRlNzIyZjc4M2E2MGU4MTFkMTk0NjY2YjliNDA3MjQ0ZmY0Yzk5NjQ3N2RkNmU0N2Y3ZTZjYTFjMA==
