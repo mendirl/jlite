@@ -1,3 +1,3 @@
 module.exports = {
-  '*.{md,json*,yml,html,css,scss,java,xml,feature}': ['prettier --write'],
+  '*': [], //default configuration, replace it with your own
 };
