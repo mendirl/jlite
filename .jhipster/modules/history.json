@@ -499,5 +499,17 @@
       "serverPort" : 8080,
       "springConfigurationFormat" : "yaml"
     }
+  }, {
+    "module" : "springdoc-mvc-openapi",
+    "date" : "2025-01-17T19:00:05.135478925Z",
+    "properties" : {
+      "packageName" : "com.mycompany.myapp",
+      "projectName" : "JHipster Sample Application",
+      "baseName" : "jhipsterSampleApplication",
+      "endOfLine" : "lf",
+      "indentSize" : 2,
+      "serverPort" : 8080,
+      "springConfigurationFormat" : "yaml"
+    }
   } ]
 }
