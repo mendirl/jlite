@@ -523,5 +523,17 @@
       "serverPort" : 8080,
       "springConfigurationFormat" : "yaml"
     }
+  }, {
+    "module" : "kipe-expression",
+    "date" : "2025-01-17T19:00:05.456940167Z",
+    "properties" : {
+      "packageName" : "com.mycompany.myapp",
+      "projectName" : "JHipster Sample Application",
+      "baseName" : "jhipsterSampleApplication",
+      "endOfLine" : "lf",
+      "indentSize" : 2,
+      "serverPort" : 8080,
+      "springConfigurationFormat" : "yaml"
+    }
   } ]
 }
