@@ -170,7 +170,7 @@
     <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
     <checkstyle.version>10.21.0</checkstyle.version>
     <jacoco.version>0.8.11</jacoco.version>
-    <spring-boot.version>3.4.1</spring-boot.version>
+    <spring-boot.version>3.4.3</spring-boot.version>
     <testcontainers.version>1.20.4</testcontainers.version>
     <reflections.version>0.10.2</reflections.version>
     <frontend-maven-plugin.version>1.15.1</frontend-maven-plugin.version>
