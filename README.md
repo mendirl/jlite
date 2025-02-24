@@ -48,5 +48,6 @@ npm install
 - [CORS configuration](documentation/cors-configuration.md)
 - [Cucumber](documentation/cucumber.md)
 - [Kipe authorization](documentation/kipe-authorization.md)
+- [Kipe expression](documentation/kipe-expression.md)
 
 <!-- jhipster-needle-documentation -->
