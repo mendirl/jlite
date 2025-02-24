@@ -789,6 +789,19 @@
         "indentSize": 2,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "java-base",
+      "date": "2025-02-24T20:34:58.053937038Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "serverPort": 8080,
+        "indentSize": 2,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }

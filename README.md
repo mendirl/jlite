@@ -24,11 +24,9 @@ npm install
 
 ## Local environment
 
-
 <!-- jhipster-needle-localEnvironment -->
 
 ## Start up
-
 
 <!-- jhipster-needle-startupCommand -->
 
@@ -36,5 +34,7 @@ npm install
 
 - [Hexagonal architecture](documentation/hexagonal-architecture.md)
 - [Front hexagonal architecture](documentation/front-hexagonal-architecture.md)
+- [Package types](documentation/package-types.md)
+- [Assertions](documentation/assertions.md)
 
 <!-- jhipster-needle-documentation -->
