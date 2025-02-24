@@ -18,4 +18,4 @@ server:
   port: 0
 application:
   security:
-    jwt-base64-secret: MmI1ZGY3OTJlYWM0NWY3MjQ0NmU1ZWU4NjRkMDY1NzVkYjRhNGRkM2EyNTFkNTFjZmY5MjhhNGY3NzRkNDhkNQ==
+    jwt-base64-secret: YjZjMjMxMDVlZmY3OTc2MzE1NTdhNTJjMGM2YTE5NTdhYzEzYTMyZWRhYTkzODgxZGQ0ZTA1NWJiZTRkYjgyMw==

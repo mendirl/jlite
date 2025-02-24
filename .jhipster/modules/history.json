@@ -971,6 +971,19 @@
         "indentSize": 2,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "spring-boot-jwt",
+      "date": "2025-02-24T20:35:14.537626214Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "serverPort": 8080,
+        "indentSize": 2,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }

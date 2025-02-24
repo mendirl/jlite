@@ -48,7 +48,7 @@ server:
   port: 8080
 application:
   security:
-    jwt-base64-secret: MzEyMmUyOTRlNzIyZjc4M2E2MGU4MTFkMTk0NjY2YjliNDA3MjQ0ZmY0Yzk5NjQ3N2RkNmU0N2Y3ZTZjYTFjMA==
+    jwt-base64-secret: YzEzNzdhMWMxYjM3OTkyZWFiYzA4MjRkYjJkNWQxNTYzM2ZhOWEyYzMzNzI0YzI4MzNlOWM0NzYzZTI4M2I5NA==
 springdoc:
   enable-native-support: true
   swagger-ui:
@@ -66,10 +66,10 @@ management:
       base-path: /management
       exposure:
         include:
-        - configprops
-        - env
-        - health
-        - info
-        - logfile
-        - loggers
-        - threaddump
+          - configprops
+          - env
+          - health
+          - info
+          - logfile
+          - loggers
+          - threaddump
