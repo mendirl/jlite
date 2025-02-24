@@ -776,6 +776,19 @@
         "indentSize": 2,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "jacoco-with-min-coverage-check",
+      "date": "2025-02-24T20:34:57.076527811Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "serverPort": 8080,
+        "indentSize": 2,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }
