@@ -932,6 +932,19 @@
         "indentSize": 2,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "flyway-postgresql",
+      "date": "2025-02-24T20:35:11.490887571Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "serverPort": 8080,
+        "indentSize": 2,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }
