@@ -6,6 +6,7 @@ import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.read.ListAppender;
+import java.util.List;
 import java.util.function.Predicate;
 import org.slf4j.LoggerFactory;
 
@@ -30,21 +31,26 @@ public final class LogsSpy {
   }
 
   public LogsSpy shouldHave(Level level, String content) {
-    assertThat(appender.list).anyMatch(withLog(level, content));
+    assertThat(logEvents()).anyMatch(withLog(level, content));
 
     return this;
   }
 
   public LogsSpy shouldHave(Level level, String content, int count) {
-    assertThat(appender.list.stream().filter(withLog(level, content))).hasSize(count);
+    assertThat(logEvents()).filteredOn(withLog(level, content)).hasSize(count);
 
     return this;
   }
 
   public LogsSpy shouldNotHave(Level level, String content) {
-    assertThat(appender.list).noneMatch(withLog(level, content));
+    assertThat(logEvents()).noneMatch(withLog(level, content));
 
     return this;
+  }
+
+  private List<ILoggingEvent> logEvents() {
+    // Copy the list to avoid concurrent modification exceptions
+    return List.copyOf(appender.list);
   }
 
   private Predicate<ILoggingEvent> withLog(Level level, String content) {
