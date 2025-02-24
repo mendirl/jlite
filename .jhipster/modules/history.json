@@ -667,5 +667,17 @@
       "indentSize" : 2,
       "baseName" : "jhipsterSampleApplication"
     }
+  }, {
+    "module" : "maven-java",
+    "date" : "2025-02-24T20:34:53.155807400Z",
+    "properties" : {
+      "endOfLine" : "lf",
+      "springConfigurationFormat" : "yaml",
+      "packageName" : "com.mycompany.myapp",
+      "projectName" : "JHipster Sample Application",
+      "serverPort" : 8080,
+      "indentSize" : 2,
+      "baseName" : "jhipsterSampleApplication"
+    }
   } ]
 }
