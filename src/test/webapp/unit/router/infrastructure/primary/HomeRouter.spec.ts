@@ -21,19 +21,9 @@ const wrap = (): VueWrapper => {
 };
 
 describe('Router', () => {
-  describe('Navigation on HomepageVue', () => {
-    it('should navigate on HomepageVue when the URL is /', async () => {
-      router.push('/');
-
-      await router.isReady();
-
-      const wrapper = wrap();
-
-      expect(wrapper.html()).toContain('Vue 3 + TypeScript + Vite');
-    });
-
-    it('should navigate on HomepageVue when the URL is /home', async () => {
-      router.push('/home');
+  describe.for([['/'], ['/home']])('Navigation on HomepageVue', url => {
+    it(`should navigate on HomepageVue when the URL is ${url}`, async () => {
+      router.push(url);
 
       await router.isReady();
 
