@@ -30,91 +30,84 @@ describe('axiosHttp', () => {
   describe('GET', () => {
     it('should get content', async () => {
       const axiosInstance = stubAxiosInstance();
-      axiosInstance.get.resolves(responseResult());
+      axiosInstance.get.mockResolvedValue(responseResult());
       const axiosHttp = new AxiosHttp(axiosInstance);
 
       const result = await axiosHttp.get<Result>('/uri');
 
-      const [uri] = axiosInstance.get.getCall(0).args;
+      expect(axiosInstance.get).toHaveBeenCalledWith('/uri', {});
       expect(result.data).toEqual(fakeResult());
-      expect(uri).toBe('/uri');
     });
 
     it('should get content with params', async () => {
       const axiosInstance = stubAxiosInstance();
-      axiosInstance.get.resolves(responseResult());
+      axiosInstance.get.mockResolvedValue(responseResult());
       const axiosHttp = new AxiosHttp(axiosInstance);
 
       await axiosHttp.get<Result>('/uri', { params: { beer: 'chips' } });
 
-      const [, config] = axiosInstance.get.getCall(0).args;
-      expect(config.params.beer).toBe('chips');
+      expect(axiosInstance.get).toHaveBeenCalledWith('/uri', { params: { beer: 'chips' } });
     });
   });
 
   describe('PUT', () => {
     it('should only get content', async () => {
       const axiosInstance = stubAxiosInstance();
-      axiosInstance.put.resolves(responseResult());
+      axiosInstance.put.mockResolvedValue(responseResult());
       const axiosHttp = new AxiosHttp(axiosInstance);
 
       const result = await axiosHttp.put<Result>('/uri');
 
-      const [uri] = axiosInstance.put.getCall(0).args;
+      expect(axiosInstance.put).toHaveBeenCalledWith('/uri', undefined);
       expect(result.data).toEqual(fakeResult());
-      expect(uri).toBe('/uri');
     });
 
     it('should send and get content', async () => {
       const axiosInstance = stubAxiosInstance();
-      axiosInstance.put.resolves(responseResult());
+      axiosInstance.put.mockResolvedValue(responseResult());
       const axiosHttp = new AxiosHttp(axiosInstance);
 
       const result = await axiosHttp.put<Result, Payload>('/uri', fakePayload());
 
-      const [uri, payload] = axiosInstance.put.getCall(0).args;
-      expect(payload).toEqual<Payload>(fakePayload());
-      expectForQuerying(uri, result);
+      expect(axiosInstance.put).toHaveBeenCalledWith('/uri', fakePayload());
+      expectForQuerying('/uri', result);
     });
   });
 
   describe('POST', () => {
     it('should only get content', async () => {
       const axiosInstance = stubAxiosInstance();
-      axiosInstance.post.resolves(responseResult());
+      axiosInstance.post.mockResolvedValue(responseResult());
       const axiosHttp = new AxiosHttp(axiosInstance);
 
       const result = await axiosHttp.post<Result>('/uri');
 
-      const [uri] = axiosInstance.post.getCall(0).args;
+      expect(axiosInstance.post).toHaveBeenCalledWith('/uri', undefined, undefined);
       expect(result.data).toEqual(fakeResult());
-      expect(uri).toBe('/uri');
     });
 
     it('should send and get content', async () => {
       const axiosInstance = stubAxiosInstance();
-      axiosInstance.post.resolves(responseResult());
+      axiosInstance.post.mockResolvedValue(responseResult());
       const axiosHttp = new AxiosHttp(axiosInstance);
 
       const result = await axiosHttp.post<Result, Payload>('/uri', fakePayload());
 
-      const [uri, payload] = axiosInstance.post.getCall(0).args;
-      expect(payload).toEqual<Payload>(fakePayload());
-      expectForQuerying(uri, result);
+      expect(axiosInstance.post).toHaveBeenCalledWith('/uri', fakePayload(), undefined);
+      expectForQuerying('/uri', result);
     });
   });
 
   describe('DELETE', () => {
     it('should get content', async () => {
       const axiosInstance = stubAxiosInstance();
-      axiosInstance.delete.resolves(responseResult());
+      axiosInstance.delete.mockResolvedValue(responseResult());
       const axiosHttp = new AxiosHttp(axiosInstance);
 
       const result = await axiosHttp.delete<Result>('/uri');
 
-      const [uri] = axiosInstance.delete.getCall(0).args;
+      expect(axiosInstance.delete).toHaveBeenCalledWith('/uri');
       expect(result.data).toEqual(fakeResult());
-      expect(uri).toBe('/uri');
     });
   });
 });

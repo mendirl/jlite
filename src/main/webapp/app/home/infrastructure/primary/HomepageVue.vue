@@ -9,20 +9,20 @@
       alt="JHipster logo"
       src="../../../../content/images/JHipster-Lite-neon-green.png"
     />
-    <h1>{{ appName }}: Vue 3 + TypeScript + Vite</h1>
+    <h1>{{ appName }}: Vue + TypeScript + Vite</h1>
 
     <p>
       <a
-        href="https://vitejs.dev/guide/features.html"
+        href="https://vite.dev/guide/features.html"
         target="_blank"
         rel="noopener"
       > Vite Documentation </a>
       |
       <a
-        href="https://v3.vuejs.org/"
+        href="https://vuejs.org/"
         target="_blank"
         rel="noopener"
-      >Vue 3 Documentation</a>
+      >Vue Documentation</a>
     </p>
 
     <p>

@@ -1,19 +1,20 @@
 import type { AxiosInstance, AxiosResponse } from 'axios';
-import sinon, { type SinonStub } from 'sinon';
+import type { MockedFunction } from 'vitest';
+import { vi } from 'vitest';
 
 export interface AxiosStubInstance extends AxiosInstance {
-  get: SinonStub;
-  put: SinonStub;
-  post: SinonStub;
-  delete: SinonStub;
+  get: MockedFunction<any>;
+  put: MockedFunction<any>;
+  post: MockedFunction<any>;
+  delete: MockedFunction<any>;
 }
 
 export const stubAxiosInstance = (): AxiosStubInstance =>
   ({
-    get: sinon.stub(),
-    put: sinon.stub(),
-    post: sinon.stub(),
-    delete: sinon.stub(),
+    get: vi.fn(),
+    put: vi.fn(),
+    post: vi.fn(),
+    delete: vi.fn(),
   }) as AxiosStubInstance;
 
 export const dataAxiosResponse = <T>(data: T): AxiosResponse<T> =>
