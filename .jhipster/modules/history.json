@@ -1699,6 +1699,19 @@
         "serverPort": 8080,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "java-base",
+      "date": "2025-05-29T11:06:15.645115779Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "indentSize": 2,
+        "serverPort": 8080,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }
