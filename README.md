@@ -35,6 +35,10 @@ npm install
 ./mvnw
 ```
 
+```bash
+docker compose -f src/main/docker/postgresql.yml up -d
+```
+
 <!-- jhipster-needle-startupCommand -->
 
 ## Documentation
@@ -52,5 +56,6 @@ npm install
 - [Cucumber authentication](documentation/cucumber-authentication.md)
 - [Sample](documentation/sample.md)
 - [sonar](documentation/sonar.md)
+- [PostgreSQL](documentation/postgresql.md)
 
 <!-- jhipster-needle-documentation -->
