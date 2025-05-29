@@ -1,5 +1,7 @@
 package com.mycompany.myapp.sample.infrastructure.primary.beer;
 
+import com.mycompany.myapp.sample.application.BeersApplicationService;
+import com.mycompany.myapp.sample.domain.BeerId;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -14,9 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.mycompany.myapp.sample.application.BeersApplicationService;
-import com.mycompany.myapp.sample.domain.BeerId;
-import com.mycompany.myapp.sample.domain.beer.Beer;
 
 @RestController
 @Tag(name = "Beers")
@@ -33,7 +32,7 @@ class BeersResource {
   @Operation(summary = "Add a beer to the catalog")
   @ApiResponse(description = "Beer added to the catalog", responseCode = "201")
   ResponseEntity<RestBeer> addBeer(@Validated @RequestBody RestBeerToCreate beerToCreate) {
-    Beer createdBeer = beers.create(beerToCreate.toDomain());
+    var createdBeer = beers.create(beerToCreate.toDomain());
 
     return new ResponseEntity<>(RestBeer.from(createdBeer), HttpStatus.CREATED);
   }

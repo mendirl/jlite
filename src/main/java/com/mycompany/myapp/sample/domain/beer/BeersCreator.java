@@ -13,7 +13,7 @@ public class BeersCreator {
   }
 
   public Beer create(BeerToCreate beerToCreate) {
-    Beer createdBeer = beerToCreate.create();
+    var createdBeer = beerToCreate.create();
 
     beers.save(createdBeer);
 
