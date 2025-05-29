@@ -2,7 +2,7 @@
 
 You might want to configure Cross Origin Resources Sharing, here is a configuration example:
 
-```
+```properties
 # CORS configuration
 application.cors.allowed-origins=http://localhost:8100,http://localhost:9000
 application.cors.allowed-methods=*

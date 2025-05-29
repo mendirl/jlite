@@ -25,7 +25,7 @@ class BeanValidationErrorsHandler {
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
   ProblemDetail handleMethodArgumentNotValid(MethodArgumentNotValidException exception) {
-    ProblemDetail problem = buildProblemDetail();
+    var problem = buildProblemDetail();
     problem.setProperty(ERRORS, buildErrors(exception));
 
     log.info(exception.getMessage(), exception);
@@ -43,7 +43,7 @@ class BeanValidationErrorsHandler {
 
   @ExceptionHandler(ConstraintViolationException.class)
   ProblemDetail handleConstraintViolationException(ConstraintViolationException exception) {
-    ProblemDetail problem = buildProblemDetail();
+    var problem = buildProblemDetail();
     problem.setProperty(ERRORS, buildErrors(exception));
 
     log.info(exception.getMessage(), exception);
@@ -52,10 +52,7 @@ class BeanValidationErrorsHandler {
   }
 
   private ProblemDetail buildProblemDetail() {
-    ProblemDetail problem = ProblemDetail.forStatusAndDetail(
-      HttpStatus.BAD_REQUEST,
-      "One or more fields were invalid. See 'errors' for details."
-    );
+    var problem = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, "One or more fields were invalid. See 'errors' for details.");
 
     problem.setTitle("Bean validation error");
     return problem;
@@ -70,7 +67,7 @@ class BeanValidationErrorsHandler {
 
   private Function<ConstraintViolation<?>, String> toFieldName() {
     return error -> {
-      String propertyPath = error.getPropertyPath().toString();
+      var propertyPath = error.getPropertyPath().toString();
 
       return propertyPath.substring(propertyPath.lastIndexOf(".") + 1);
     };

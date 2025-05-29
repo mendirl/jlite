@@ -22,7 +22,7 @@ class CorsFilterConfiguration {
 
   @Bean
   public CorsFilter corsFilter() {
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    var source = new UrlBasedCorsConfigurationSource();
     if (
       !CollectionUtils.isEmpty(corsConfiguration.getAllowedOrigins()) ||
       !CollectionUtils.isEmpty(corsConfiguration.getAllowedOriginPatterns())
