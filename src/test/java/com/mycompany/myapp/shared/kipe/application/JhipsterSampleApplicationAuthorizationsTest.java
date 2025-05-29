@@ -1,13 +1,16 @@
 package com.mycompany.myapp.shared.kipe.application;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Mockito.*;
 import static com.mycompany.myapp.shared.kipe.application.TestAuthentications.*;
 import static com.mycompany.myapp.shared.kipe.domain.RolesAccessesFixture.*;
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
+import com.mycompany.myapp.UnitTest;
+import com.mycompany.myapp.shared.authentication.application.UnknownAuthenticationException;
+import com.mycompany.myapp.shared.authentication.domain.Username;
+import com.mycompany.myapp.shared.error.domain.MissingMandatoryValueException;
 import java.util.List;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,10 +18,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.mycompany.myapp.UnitTest;
-import com.mycompany.myapp.shared.authentication.application.UnknownAuthenticationException;
-import com.mycompany.myapp.shared.authentication.domain.Username;
-import com.mycompany.myapp.shared.error.domain.MissingMandatoryValueException;
 
 @UnitTest
 class JhipsterSampleApplicationAuthorizationsTest {
@@ -28,8 +27,7 @@ class JhipsterSampleApplicationAuthorizationsTest {
   );
 
   @Nested
-  @DisplayName("All authorized")
-  class AllAuthorizedTest {
+  class AllAuthorized {
 
     @Test
     void shouldNotBeAuthorizedWithoutAuthentication() {
@@ -63,8 +61,7 @@ class JhipsterSampleApplicationAuthorizationsTest {
   }
 
   @Nested
-  @DisplayName("Get username")
-  class GetUsernameTest {
+  class GetUsername {
 
     @Test
     void shouldNotGetNotAuthenticatedUserUsername() {
@@ -89,7 +86,7 @@ class JhipsterSampleApplicationAuthorizationsTest {
     }
 
     private static Authentication createDummyAuthenticationWithPrincipalDetails(String username) {
-      UserDetails principalDetails = createUserDetailsWithUsername(username);
+      var principalDetails = createUserDetailsWithUsername(username);
       Authentication authentication = mock(Authentication.class);
       when(authentication.getPrincipal()).thenReturn(principalDetails);
       when(authentication.toString()).thenReturn("Authentication with userDetails, username=" + username);
@@ -104,8 +101,7 @@ class JhipsterSampleApplicationAuthorizationsTest {
   }
 
   @Nested
-  @DisplayName("Specific authorized")
-  class SpecificAuthorizedTest {
+  class SpecificAuthorized {
 
     @Test
     void shouldNotBeAuthorizedWithoutAuthentication() {

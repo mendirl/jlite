@@ -26,7 +26,7 @@ enum MyResource implements Resource {
 
 You'll then have to define one (or more) `RolesAccesses` spring beans:
 
-```
+```java
 @Configuration
 class RolesConfiguration {
 
@@ -44,6 +44,7 @@ class RolesConfiguration {
     //@formatter:on
   }
 }
+
 ```
 
 For each role, you'll be able to define multiple accesses. There are three things defining an access:
