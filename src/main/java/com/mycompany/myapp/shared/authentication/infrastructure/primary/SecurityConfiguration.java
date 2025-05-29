@@ -2,6 +2,7 @@ package com.mycompany.myapp.shared.authentication.infrastructure.primary;
 
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.*;
 
+import com.mycompany.myapp.shared.authentication.domain.Role;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import java.nio.charset.StandardCharsets;
@@ -23,25 +24,21 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
-import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
-import com.mycompany.myapp.shared.authentication.domain.Role;
 
 @Configuration
 @EnableWebSecurity
 @EnableConfigurationProperties(JwtAuthenticationProperties.class)
-@EnableMethodSecurity(prePostEnabled = true, securedEnabled = true)
+@EnableMethodSecurity(securedEnabled = true)
 class SecurityConfiguration {
 
   private final JwtAuthenticationProperties properties;
   private final CorsFilter corsFilter;
-  private final HandlerMappingIntrospector introspector;
 
-  public SecurityConfiguration(JwtAuthenticationProperties properties, CorsFilter corsFilter, HandlerMappingIntrospector introspector) {
+  public SecurityConfiguration(JwtAuthenticationProperties properties, CorsFilter corsFilter) {
     this.properties = properties;
     this.corsFilter = corsFilter;
-    this.introspector = introspector;
   }
 
   @Bean
@@ -74,22 +71,22 @@ class SecurityConfiguration {
         .requestMatchers(antMatcher("/swagger-ui.html")).permitAll()
         .requestMatchers(antMatcher("/v3/api-docs/**")).permitAll()
         .requestMatchers(antMatcher("/test/**")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/api/authenticate")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/api/register")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/api/activate")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/api/account/reset-password/init")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/api/account/reset-password/finish")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/api/admin/**")).hasAuthority(Role.ADMIN.key())
-        .requestMatchers(new MvcRequestMatcher(introspector, "/api/**")).authenticated()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/management/health")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/management/health/**")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/management/info")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/management/prometheus")).permitAll()
-        .requestMatchers(new MvcRequestMatcher(introspector, "/management/**")).hasAuthority(Role.ADMIN.key())
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/api/authenticate")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/api/register")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/api/activate")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/api/account/reset-password/init")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/api/account/reset-password/finish")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/api/admin/**")).hasAuthority(Role.ADMIN.key())
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/api/**")).authenticated()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/management/health")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/management/health/**")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/management/info")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/management/prometheus")).permitAll()
+        .requestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/management/**")).hasAuthority(Role.ADMIN.key())
         .anyRequest().authenticated()
       );
 
-      JWTConfigurer jwtConfigurer = new JWTConfigurer(authenticationTokenReader());
+      var jwtConfigurer = new JWTConfigurer(authenticationTokenReader());
       http.with(jwtConfigurer, Customizer.withDefaults());
       return http.build();
     // @formatter:on

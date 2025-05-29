@@ -1,8 +1,11 @@
 package com.mycompany.myapp.shared.authentication.application;
 
-import static org.assertj.core.api.Assertions.*;
 import static com.mycompany.myapp.shared.authentication.application.AuthenticatedUser.*;
+import static org.assertj.core.api.Assertions.*;
 
+import com.mycompany.myapp.UnitTest;
+import com.mycompany.myapp.shared.authentication.domain.Role;
+import com.mycompany.myapp.shared.authentication.domain.Username;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
@@ -19,12 +22,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
-import com.mycompany.myapp.UnitTest;
-import com.mycompany.myapp.shared.authentication.domain.Role;
-import com.mycompany.myapp.shared.authentication.domain.Username;
 
 @UnitTest
 class AuthenticatedUserTest {
@@ -106,7 +105,7 @@ class AuthenticatedUserTest {
 
   private static UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken() {
     Collection<GrantedAuthority> authorities = adminAuthorities();
-    User user = new User("admin", "admin", authorities);
+    var user = new User("admin", "admin", authorities);
 
     return new UsernamePasswordAuthenticationToken(user, "admin", authorities);
   }
@@ -116,7 +115,7 @@ class AuthenticatedUserTest {
   }
 
   private void authenticate(Authentication token) {
-    SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
+    var securityContext = SecurityContextHolder.createEmptyContext();
     securityContext.setAuthentication(token);
     SecurityContextHolder.setContext(securityContext);
   }

@@ -3,6 +3,7 @@ package com.mycompany.myapp.shared.authentication.infrastructure.primary;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import com.mycompany.myapp.UnitTest;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletResponse;
@@ -21,7 +22,6 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.security.authentication.TestingAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import com.mycompany.myapp.UnitTest;
 
 @UnitTest
 @ExtendWith(MockitoExtension.class)
@@ -68,7 +68,7 @@ class JWTFilterTest {
 
   @Test
   void shouldAuthenticateUserWithValidToken() throws IOException, ServletException {
-    TestingAuthenticationToken authentication = new TestingAuthenticationToken("user", "password");
+    var authentication = new TestingAuthenticationToken("user", "password");
     when(tokens.read("valid")).thenReturn(Optional.of(authentication));
     MockHttpServletRequest request = new MockHttpServletRequest();
     request.addHeader(HttpHeaders.AUTHORIZATION, "Bearer valid");

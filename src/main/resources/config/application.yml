@@ -48,7 +48,7 @@ server:
   port: 8080
 application:
   security:
-    jwt-base64-secret: YzEzNzdhMWMxYjM3OTkyZWFiYzA4MjRkYjJkNWQxNTYzM2ZhOWEyYzMzNzI0YzI4MzNlOWM0NzYzZTI4M2I5NA==
+    jwt-base64-secret: YmJjNDkxMjcyM2FiNDBmZGI2YmQxN2ZmNGUwMjYxYzc5ZGVjM2FkMmJmMGNkOTI2ZjA0ZDRkMmI2MDg5NzdjOQ==
 springdoc:
   enable-native-support: true
   swagger-ui:

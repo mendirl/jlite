@@ -18,5 +18,6 @@
   <logger name="org.hibernate.orm" level="WARN" />
   <logger name="org.hibernate.ejb.HibernatePersistence" level="OFF" />
   <logger name="org.springframework.web" level="ERROR" />
+  <logger name="org.springframework.security" level="WARN" />
   <!-- jhipster-needle-logback-add-log -->
 </configuration>

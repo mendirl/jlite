@@ -15,7 +15,7 @@ class JWTConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFilterChain
 
   @Override
   public void configure(HttpSecurity http) {
-    JWTFilter jwtFilter = new JWTFilter(jwt);
+    var jwtFilter = new JWTFilter(jwt);
 
     http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
   }

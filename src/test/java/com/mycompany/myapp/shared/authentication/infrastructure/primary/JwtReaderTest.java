@@ -3,6 +3,10 @@ package com.mycompany.myapp.shared.authentication.infrastructure.primary;
 import static org.assertj.core.api.Assertions.*;
 
 import ch.qos.logback.classic.Level;
+import com.mycompany.myapp.Logs;
+import com.mycompany.myapp.LogsSpy;
+import com.mycompany.myapp.LogsSpyExtension;
+import com.mycompany.myapp.UnitTest;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -13,13 +17,8 @@ import javax.crypto.SecretKey;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import com.mycompany.myapp.Logs;
-import com.mycompany.myapp.LogsSpy;
-import com.mycompany.myapp.LogsSpyExtension;
-import com.mycompany.myapp.UnitTest;
 
 @UnitTest
 @ExtendWith({ LogsSpyExtension.class, MockitoExtension.class })
@@ -58,7 +57,7 @@ class JwtReaderTest {
 
   @Test
   void shouldGetAuthenticationFromValidToken() {
-    Authentication authentication = reader.read(userToken()).orElseThrow();
+    var authentication = reader.read(userToken()).orElseThrow();
 
     assertThat(((User) authentication.getPrincipal()).getUsername()).isEqualTo("test");
     assertThat(authentication.getAuthorities().stream().map(SimpleGrantedAuthority.class::cast)).containsExactly(
@@ -70,7 +69,7 @@ class JwtReaderTest {
   private String userToken() {
     return Jwts.builder()
       .subject("test")
-      .claim("auth", "ROLE_USER,ROLE_ADMIN,,")
+      .claim("auth", "ROLE_USER,ROLE_ADMIN")
       .signWith(KEY, Jwts.SIG.HS512)
       .expiration(Date.from(Instant.now().plusSeconds(120)))
       .compact();
@@ -78,7 +77,7 @@ class JwtReaderTest {
 
   @Test
   void shouldGetAuthenticationFromValidTokenWithoutRoles() {
-    Authentication authentication = reader.read(userTokenWithoutRoles()).orElseThrow();
+    var authentication = reader.read(userTokenWithoutRoles()).orElseThrow();
 
     assertThat(((User) authentication.getPrincipal()).getUsername()).isEqualTo("test");
     assertThat(authentication.getAuthorities()).isEmpty();
