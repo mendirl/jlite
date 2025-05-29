@@ -1803,6 +1803,19 @@
         "serverPort": 8080,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "spring-boot-docker-compose",
+      "date": "2025-05-29T11:06:24.887273281Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "indentSize": 2,
+        "serverPort": 8080,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }
