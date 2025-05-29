@@ -57,5 +57,6 @@ docker compose -f src/main/docker/postgresql.yml up -d
 - [Cucumber authentication](documentation/cucumber-authentication.md)
 - [Sample](documentation/sample.md)
 - [Vue](documentation/vue.md)
+- [Vue JWT Authentication Components](documentation/vue-jwt-authentication-components.md)
 
 <!-- jhipster-needle-documentation -->
