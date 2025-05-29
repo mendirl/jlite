@@ -11,6 +11,8 @@
     "build:vite": "vite build --emptyOutDir",
     "dev": "npm-run-all --parallel dev:*",
     "dev:vite": "vite",
+    "e2e": "playwright test --ui --config src/test/webapp/e2e/playwright.config.ts",
+    "e2e:headless": "playwright test --config src/test/webapp/e2e/playwright.config.ts",
     "lint": "eslint .",
     "prepare": "husky",
     "prettier:check": "prettier --check .",

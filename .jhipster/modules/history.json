@@ -2128,6 +2128,19 @@
         "serverPort": 8080,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "playwright-e2e",
+      "date": "2025-05-29T11:11:11.630373040Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "indentSize": 2,
+        "serverPort": 8080,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }
