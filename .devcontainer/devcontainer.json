@@ -1,0 +1,31 @@
+{
+  "name": "Java",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "21",
+      "INSTALL_MAVEN": "false",
+      "INSTALL_GRADLE": "false",
+      "NODE_VERSION": "lts/*"
+    }
+  },
+  "settings": {
+    "java.home": "/docker-java-home"
+  },
+  "extensions": [
+    "vscjava.vscode-java-pack",
+    "pivotal.vscode-boot-dev-pack",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "angular.ng-template",
+    "firsttris.vscode-jest-runner",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "christian-kohler.npm-intellisense"
+  ],
+  "forwardPorts": [8080, 9000],
+  "remoteUser": "vscode",
+  "features": {
+    "docker-in-docker": "latest",
+    "docker-from-docker": "latest"
+  }
+}
