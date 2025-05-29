@@ -1686,6 +1686,19 @@
         "serverPort": 8080,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "jacoco-with-min-coverage-check",
+      "date": "2025-05-29T11:06:14.675018904Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "indentSize": 2,
+        "serverPort": 8080,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }
