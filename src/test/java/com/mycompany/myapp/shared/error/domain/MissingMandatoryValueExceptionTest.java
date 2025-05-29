@@ -2,8 +2,8 @@ package com.mycompany.myapp.shared.error.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
 import com.mycompany.myapp.UnitTest;
+import org.junit.jupiter.api.Test;
 
 @UnitTest
 class MissingMandatoryValueExceptionTest {
@@ -12,7 +12,7 @@ class MissingMandatoryValueExceptionTest {
 
   @Test
   void shouldGetExceptionForBlankValue() {
-    MissingMandatoryValueException exception = MissingMandatoryValueException.forBlankValue(FIELD);
+    var exception = MissingMandatoryValueException.forBlankValue(FIELD);
 
     assertDefaultInformation(exception);
     assertThat(exception.getMessage()).isEqualTo("The field \"field\" is mandatory and wasn't set (blank)");
@@ -20,7 +20,7 @@ class MissingMandatoryValueExceptionTest {
 
   @Test
   void shouldGetExceptionForNullValue() {
-    MissingMandatoryValueException exception = MissingMandatoryValueException.forNullValue(FIELD);
+    var exception = MissingMandatoryValueException.forNullValue(FIELD);
 
     assertDefaultInformation(exception);
     assertThat(exception.getMessage()).isEqualTo("The field \"field\" is mandatory and wasn't set (null)");
@@ -28,7 +28,7 @@ class MissingMandatoryValueExceptionTest {
 
   @Test
   void shouldGetExceptionForEmptyCollection() {
-    MissingMandatoryValueException exception = MissingMandatoryValueException.forEmptyValue(FIELD);
+    var exception = MissingMandatoryValueException.forEmptyValue(FIELD);
 
     assertDefaultInformation(exception);
     assertThat(exception.getMessage()).isEqualTo("The field \"field\" is mandatory and wasn't set (empty)");
