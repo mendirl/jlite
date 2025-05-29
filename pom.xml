@@ -110,6 +110,16 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>${springdoc-openapi.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+      <version>${springdoc-openapi.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
@@ -185,6 +195,7 @@
     <reflections.version>0.10.2</reflections.version>
     <cucumber.version>7.22.2</cucumber.version>
     <json-web-token.version>0.12.6</json-web-token.version>
+    <springdoc-openapi.version>2.8.8</springdoc-openapi.version>
   </properties>
 
   <build>
