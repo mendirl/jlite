@@ -58,5 +58,6 @@ docker compose -f src/main/docker/postgresql.yml up -d
 - [Sample](documentation/sample.md)
 - [Vue](documentation/vue.md)
 - [Vue JWT Authentication Components](documentation/vue-jwt-authentication-components.md)
+- [Caffeine](documentation/caffeine.md)
 
 <!-- jhipster-needle-documentation -->
