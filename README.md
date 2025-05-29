@@ -29,5 +29,6 @@ npm install
 ## Documentation
 
 - [Hexagonal architecture](documentation/hexagonal-architecture.md)
+- [Front hexagonal architecture](documentation/front-hexagonal-architecture.md)
 
 <!-- jhipster-needle-documentation -->
