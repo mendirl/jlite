@@ -14,6 +14,9 @@ spring:
     password: ''
     url: jdbc:tc:postgresql:17.5:///jhipsterSampleApplication?TC_TMPFS=/testtmpfs:rw
     username: jhipsterSampleApplication
+  docker:
+    compose:
+      enabled: false
 server:
   port: 0
 application:
