@@ -1,11 +1,10 @@
 /// <reference types="vitest" />
 
-import vue from '@vitejs/plugin-vue';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { configDefaults, defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [vue(), tsconfigPaths()],
+  plugins: [tsconfigPaths()],
   test: {
     reporters: ['verbose', 'vitest-sonar-reporter'],
     outputFile: {
@@ -19,7 +18,7 @@ export default defineConfig({
         maxThreads: 2,
       },
     },
-    environment: 'jsdom',
+    environment: 'node',
     cache: false,
     include: ['src/test/webapp/unit/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
     coverage: {
@@ -29,16 +28,10 @@ export default defineConfig({
         100: true,
       },
       include: ['src/main/webapp/**/*.ts?(x)'],
-      exclude: [
-        ...(configDefaults.coverage.exclude as string[]),
-        'src/main/webapp/app/main.ts',
-        'src/main/webapp/app/injections.ts',
-        'src/main/webapp/app/router.ts',
-        'src/main/webapp/**/*.component.ts',
-      ],
+      exclude: [...(configDefaults.coverage.exclude as string[])],
       provider: 'istanbul',
       reportsDirectory: 'target/test-results/',
-      reporter: ['html', 'json-summary', 'text', 'text-summary', 'lcov', 'clover'],
+      reporter: ['html', 'json', 'json-summary', 'text', 'text-summary', 'lcov', 'clover'],
       watermarks: {
         statements: [100, 100],
         branches: [100, 100],
