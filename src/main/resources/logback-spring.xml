@@ -31,6 +31,8 @@
   <logger name="com.sun" level="WARN" />
   <logger name="org.springframework" level="WARN" />
   <logger name="org.postgresql" level="WARN" />
+  <logger name="org.hibernate.orm" level="WARN" />
+  <logger name="org.hibernate.ejb.HibernatePersistence" level="OFF" />
   <!-- jhipster-needle-logback-add-log -->
 
   <root level="${log.level}">
