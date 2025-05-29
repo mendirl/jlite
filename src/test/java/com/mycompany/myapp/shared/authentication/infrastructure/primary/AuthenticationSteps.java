@@ -2,6 +2,7 @@ package com.mycompany.myapp.shared.authentication.infrastructure.primary;
 
 import static org.assertj.core.api.Assertions.*;
 
+import com.mycompany.myapp.shared.authentication.domain.Role;
 import io.cucumber.java.en.Given;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -19,7 +20,6 @@ import javax.crypto.SecretKey;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
-import com.mycompany.myapp.shared.authentication.domain.Role;
 
 public class AuthenticationSteps {
 
@@ -43,7 +43,7 @@ public class AuthenticationSteps {
   private List<ClientHttpRequestInterceptor> interceptorsWithAuthentication(String user) {
     List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>(rest.getRestTemplate().getInterceptors());
 
-    User userToAuthenticate = users.get(user);
+    var userToAuthenticate = users.get(user);
 
     assertThat(userToAuthenticate).as(unknownUserMessage(user)).isNotNull();
 
