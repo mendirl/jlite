@@ -59,7 +59,7 @@ class ElementAssertions {
   <Data> void containing(List<Map<String, Data>> responses) {
     assertThat(responses).as("Can't check object against null responses").isNotNull();
 
-    for (int line = 0; line < responses.size(); line++) {
+    for (var line = 0; line < responses.size(); line++) {
       for (Map.Entry<String, Data> entry : responses.get(line).entrySet()) {
         String path = jsonPath + "[" + line + "]." + CucumberJson.toCamelCase(entry.getKey());
 
