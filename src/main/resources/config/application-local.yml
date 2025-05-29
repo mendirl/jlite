@@ -3,3 +3,10 @@ logging:
     com:
       mycompany:
         myapp: DEBUG
+management:
+  endpoints:
+    access:
+      default: unrestricted
+    web:
+      exposure:
+        include: '*'
