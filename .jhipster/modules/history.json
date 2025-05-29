@@ -1114,6 +1114,19 @@
         "serverPort": 8080,
         "baseName": "jhipsterSampleApplication"
       }
+    },
+    {
+      "module": "sonar-qube-java-backend-and-frontend",
+      "date": "2025-05-29T11:02:20.893582964Z",
+      "properties": {
+        "endOfLine": "lf",
+        "springConfigurationFormat": "yaml",
+        "packageName": "com.mycompany.myapp",
+        "projectName": "JHipster Sample Application",
+        "indentSize": 2,
+        "serverPort": 8080,
+        "baseName": "jhipsterSampleApplication"
+      }
     }
   ]
 }

@@ -51,5 +51,6 @@ npm install
 - [Kipe expression](documentation/kipe-expression.md)
 - [Cucumber authentication](documentation/cucumber-authentication.md)
 - [Sample](documentation/sample.md)
+- [sonar](documentation/sonar.md)
 
 <!-- jhipster-needle-documentation -->
