@@ -71,6 +71,12 @@
       <version>${testcontainers.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.tngtech.archunit</groupId>
+      <artifactId>archunit-junit5-api</artifactId>
+      <version>${archunit-junit5.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <properties>
@@ -91,6 +97,7 @@
     <sonar-maven-plugin.version>5.1.0.4751</sonar-maven-plugin.version>
     <spring-boot.version>3.5.0</spring-boot.version>
     <testcontainers.version>1.21.0</testcontainers.version>
+    <archunit-junit5.version>1.4.1</archunit-junit5.version>
   </properties>
 
   <build>

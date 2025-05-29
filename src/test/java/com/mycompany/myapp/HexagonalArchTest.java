@@ -67,7 +67,7 @@ class HexagonalArchTest {
 
   private static Function<Path, String> toPackageName() {
     return path -> {
-      String stringPath = path.toString();
+      var stringPath = path.toString();
       return stringPath.substring(0, stringPath.lastIndexOf("."));
     };
   }
