@@ -193,9 +193,9 @@
     <properties-maven-plugin.version>1.2.1</properties-maven-plugin.version>
     <sonar-maven-plugin.version>5.1.0.4751</sonar-maven-plugin.version>
     <spring-boot.version>3.5.0</spring-boot.version>
-    <testcontainers.version>1.21.0</testcontainers.version>
+    <testcontainers.version>1.21.3</testcontainers.version>
     <archunit-junit5.version>1.4.1</archunit-junit5.version>
-    <jooq.version>3.20.4</jooq.version>
+    <jooq.version>3.20.9</jooq.version>
     <reflections.version>0.10.2</reflections.version>
     <cucumber.version>7.22.2</cucumber.version>
     <json-web-token.version>0.12.6</json-web-token.version>
