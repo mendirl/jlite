@@ -6,7 +6,7 @@
       "name": "jhipster-sample-application",
       "dependencies": {
         "axios": "1.12.0",
-        "piqure": "2.1.1",
+        "piqure": "2.1.2",
         "vue": "3.5.25",
         "vue-router": "4.5.1",
       },
@@ -757,7 +757,7 @@
 
     "pidtree": ["pidtree@0.6.0", "", { "bin": { "pidtree": "bin/pidtree.js" } }, "sha512-eG2dWTVw5bzqGRztnHExczNxt5VGsE6OwTeCG3fdUf9KBsZzO3R5OIIIzWR+iZA0NtZ+RDVdaoE2dK1cn6jH4g=="],
 
-    "piqure": ["piqure@2.1.1", "", {}, "sha512-PBrZj/zL10Sc8zO+0uzQnRLYQyDSj9y4lA+XnADMdbYo5PoqSpigXDVFydxkcZ1prPXvAdu6STj/cRdhKECkNA=="],
+    "piqure": ["piqure@2.1.2", "", {}, "sha512-sf7ygreNag00M0hvhqRr2g764zhQtT+9Dq6QR1fCkYyx4/b5ik3J9737+KImxQsIQj08NC3eBw3npX/hASEf3w=="],
 
     "playwright": ["playwright@1.52.0", "", { "dependencies": { "playwright-core": "1.52.0" }, "optionalDependencies": { "fsevents": "2.3.2" }, "bin": { "playwright": "cli.js" } }, "sha512-JAwMNMBlxJ2oD1kce4KPtMkDeKGHQstdpFPcPH3maElAXon/QZeTvtsfXmTMRyO9TslfoYOXkSsvao2nE1ilTw=="],
 
